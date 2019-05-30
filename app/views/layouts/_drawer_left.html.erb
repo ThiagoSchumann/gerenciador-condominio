@@ -9,8 +9,8 @@
             <span class="sidebar-menu-text">Dashboard</span>
           </a>
         </li>             
-       <li class="sidebar-menu-item <% if current_page?(stack_path(:ui_alerts))%>active<% end%>">
-            <a class="sidebar-menu-button" href="<%= stack_path(:ui_alerts) %>">
+       <li class="sidebar-menu-item <% if current_page?(pessoas_path()) && (current_page?(action:'index') ||  current_page?(action:'new')   ||  current_page?(action:'edit'))%>active<% end%>">
+            <a class="sidebar-menu-button" href="<%= pessoas_path() %>">
               <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">people</i>
               <span class="sidebar-menu-text">Pessoas</span>
             </a>

@@ -1,6 +1,7 @@
 class PessoasController < ApplicationController
   before_action :set_pessoa, only: [:show, :edit, :update, :destroy]
-
+  require "cpf_cnpj"
+  
   # GET /pessoas
   # GET /pessoas.json
   def index
@@ -27,6 +28,9 @@ class PessoasController < ApplicationController
     @pessoa = Pessoa.new(pessoa_params)
 
     respond_to do |format|
+      unless CPF.valid?(:documento)
+        format.html { redirect_to @pessoa, notice: 'CPF inválido' }
+      end
       if @pessoa.save
         format.html { redirect_to @pessoa, notice: 'Pessoa was successfully created.' }
         format.json { render :show, status: :created, location: @pessoa }

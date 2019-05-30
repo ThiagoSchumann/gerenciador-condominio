@@ -66,3 +66,5 @@ gem 'sprockets-es6'
 
 gem 'pg'
 gem 'rename', '~> 1.0', '>= 1.0.6'
+gem "cpf_cnpj"
+gem 'devise'
